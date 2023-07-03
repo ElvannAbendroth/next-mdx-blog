@@ -19,7 +19,7 @@ export const NavItems: FC<NavItemsProps> = ({ navItems }) => {
   return (
     <ul className="flex gap-4">
       {navItems.map(item => {
-        const isActive = pathname.startsWith(item.href)
+        const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href)
         return (
           <li key={item.label}>
             <Link

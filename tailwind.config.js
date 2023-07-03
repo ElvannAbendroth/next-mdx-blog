@@ -17,7 +17,7 @@ module.exports = {
       white: colors.white,
       gray: colors.slate,
       primary: { DEFAULT: colors.indigo[800], foreground: colors.white },
-      secondary: { DEFAULT: colors.rose[500], foreground: colors.white },
+      secondary: { DEFAULT: colors.pink[500], foreground: colors.white },
     },
 
     extend: {
