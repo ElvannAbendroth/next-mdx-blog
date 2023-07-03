@@ -1,7 +1,7 @@
-import { FC } from 'react'
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { Mdx } from '@/components/Mdx'
+import Link from 'next/link'
 
 interface PostPageProps {
   params: {
@@ -23,6 +23,8 @@ export const PostPage = async ({ params }: PostPageProps) => {
       <h1>{post.title}</h1>
 
       <Mdx code={post.body.code} />
+      <p>---</p>
+      <Link href="/blog">return to blog</Link>
     </div>
   )
 }
