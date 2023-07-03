@@ -18,7 +18,7 @@ export const PostPage = async ({ params }: PostPageProps) => {
   const post = await getPostFromParams(params.slug)
 
   return (
-    <div className="">
+    <div className="prose">
       <h1>{post.title}</h1>
       <Mdx code={post.body.code} />
       <p>---</p>
