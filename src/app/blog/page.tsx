@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function BlogPage() {
   return (
-    <main className="prose">
+    <div className="prose">
       <h1>Blog</h1>
       <p>Welcome to the blog section of the site</p>
 
@@ -18,6 +18,6 @@ export default function BlogPage() {
       </ul>
 
       <Link href="/">return home</Link>
-    </main>
+    </div>
   )
 }

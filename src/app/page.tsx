@@ -1,10 +1,19 @@
 import Link from 'next/link'
+import { allPosts } from 'contentlayer/generated'
 
 export default function Home() {
   return (
-    <main className="prose">
+    <div className="prose">
       <h1>Hello</h1>
+
+      <ul>
+        {allPosts.map((post: any) => (
+          <li key={post.slug}>
+            <a href={post.slug}>{post.title}</a>
+          </li>
+        ))}
+      </ul>
       <Link href="/blog">visit blog</Link>
-    </main>
+    </div>
   )
 }
