@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 const colors = require('tailwindcss/colors')
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
@@ -16,7 +17,7 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.slate,
-      primary: { DEFAULT: colors.indigo[800], foreground: colors.white },
+      primary: { DEFAULT: colors.indigo[700], foreground: colors.white, hover: colors.indigo[500] },
       secondary: { DEFAULT: colors.pink[500], foreground: colors.white },
     },
 

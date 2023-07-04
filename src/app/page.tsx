@@ -4,26 +4,25 @@ import { siteConfig } from '@/lib/config'
 
 export default function Home() {
   return (
-    <div className="prose">
-      <h1>{siteConfig.name}</h1>
-      <p>{siteConfig.description} </p>
+    <div className="flex flex-col gap-8">
+      <h1 className="text-4xl font-extrabold">{siteConfig.name}</h1>
 
-      <h2>Latest Posts</h2>
+      <p>{siteConfig.description}</p>
 
-      <div className="">
+      <h2 className="text-2xl font-extrabold tracking-tight">Latest Posts</h2>
+
+      <div className="flex flex-col gap-8">
         {allPosts.map((post: any) => (
-          <div key={post.slug}>
-            <Link className="no-underline" href={post.slug}>
-              <h3>{post.title}</h3>
+          <div className="flex flex-col gap-4 bg-gray-100/60 p-4 rounded" key={post.slug}>
+            <Link className="underline hover:text-primary" href={post.slug}>
+              <h3 className="text-lg font-bold">{post.title}</h3>
             </Link>
             <p>{post.description}</p>
-            <Link
-              className="bg-primary p-2 rounded text-primary-foreground text-sm hover:bg-primary/80"
-              href={post.slug}
-            >
-              <button>read more</button>
-            </Link>
-            <hr />
+            <div className="">
+              <Link className=" underline text-primary font-bold hover:text-primary-hover" href={post.slug}>
+                read more
+              </Link>
+            </div>
           </div>
         ))}
       </div>
