@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { Mdx } from '@/components/Mdx'
 import Link from 'next/link'
 
-interface PostPageProps {
+interface PageProps {
   params: {
     slug: string
   }
@@ -14,7 +14,7 @@ async function getPostFromParams(slug: string) {
   return !post ? notFound() : post
 }
 
-export const PostPage = async ({ params }: PostPageProps) => {
+export const Page = async ({ params }: PageProps) => {
   const post = await getPostFromParams(params.slug)
 
   return (
@@ -33,4 +33,4 @@ export const PostPage = async ({ params }: PostPageProps) => {
   )
 }
 
-export default PostPage
+export default Page
