@@ -4,22 +4,22 @@ import { siteConfig } from '@/lib/config'
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-8">
-      <h1 className="text-4xl font-extrabold">{siteConfig.name}</h1>
+    <div className="">
+      <h1 className="typo-h1">{siteConfig.name}</h1>
 
       <p>{siteConfig.description}</p>
 
-      <h2 className="text-2xl font-extrabold tracking-tight">Latest Posts</h2>
+      <h2 className="typo-h2">Latest Posts</h2>
 
-      <div className="flex flex-col gap-8">
+      <div id="latest-posts" className="flex flex-col gap-8">
         {allPosts.map((post: any) => (
-          <div className="flex flex-col gap-4 bg-gray-100/60 p-4 rounded" key={post.slug}>
-            <Link className="underline hover:text-primary" href={post.slug}>
-              <h3 className="text-lg font-bold">{post.title}</h3>
+          <div id="latest-posts-card" className="bg-gray-100/60 p-4 rounded" key={post.slug}>
+            <Link className="hover:text-primary" href={post.slug}>
+              <h3 className="typo-h3">{post.title}</h3>
             </Link>
-            <p>{post.description}</p>
+            <p className="typo-p">{post.description}</p>
             <div className="">
-              <Link className=" underline text-primary font-bold hover:text-primary-hover" href={post.slug}>
+              <Link className="typo-a" href={post.slug}>
                 read more
               </Link>
             </div>

@@ -19,8 +19,8 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <div className="flex flex-col gap-8">
-      <article className="prose prose-a:text-primary hover:prose-a:text-primary-hover">
-        <h1>{post.title}</h1>
+      <article className="  max-w-none prose-a:text-primary hover:prose-a:text-primary-hover">
+        <h1 className="typo-h1">{post.title}</h1>
         <Mdx code={post.body.code} />
       </article>
       <hr />

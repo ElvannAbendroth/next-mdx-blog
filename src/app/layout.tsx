@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${open_sans.className}`}>
         <Navbar />
         <main className="max-w-content mx-auto pt-36 pb-12 px-8">{children}</main>
