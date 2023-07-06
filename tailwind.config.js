@@ -14,8 +14,9 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      foreground: colors.black,
+      foreground: colors.gray[800],
       background: colors.white,
+      pre: colors.gray[800],
       black: colors.black,
       muted: { DEFAULT: colors.gray[500], foreground: colors.white, hover: colors.gray[400] },
       white: colors.white,

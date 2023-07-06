@@ -1,27 +1,40 @@
 import Link from 'next/link'
 import { allPosts } from 'contentlayer/generated'
-import { siteConfig } from '@/lib/config'
+import { Icons } from '@/components/Icons'
 
 export default function Home() {
   return (
     <div className="">
-      <h1 className="typo-h1">{siteConfig.name}</h1>
-
-      <p>{siteConfig.description}</p>
-
-      <h2 className="typo-h2">Latest Posts</h2>
-
-      <div id="latest-posts" className="flex flex-col gap-8">
+      <div id="latest-posts" className="flex flex-col gap-16">
         {allPosts.map((post: any) => (
-          <div id="latest-posts-card" className="bg-gray-100/60 p-4 rounded" key={post.slug}>
+          <div id="latest-posts-card" key={post.slug}>
+            {/* <p id="category" className="font-extrabold text-primary/50 uppercase text-sm mb-2">
+              Tutorial
+            </p> */}
+
             <Link className="hover:text-primary" href={post.slug}>
-              <h3 className="typo-h3">{post.title}</h3>
+              <h2 className="typo-h3">{post.title}</h2>
             </Link>
-            <p className="typo-p">{post.description}</p>
-            <div className="">
-              <Link className="typo-a" href={post.slug}>
-                read more
-              </Link>
+            <div className="flex gap-6">
+              <span className="flex gap-2 typo-small">
+                <Icons.calendar size={16} strokeWidth="2.5" /> Aug 2013
+              </span>
+              <div className="flex gap-2 typo-small">
+                <Icons.tags size={16} strokeWidth="2.5" />{' '}
+                <div>
+                  <Link href="#" className="hover:underline underline-offset-4 decoration-2 decoration-muted/30">
+                    design
+                  </Link>
+                  {', '}
+                  <Link href="#" className="hover:underline underline-offset-4 decoration-2 decoration-muted/30">
+                    UI/UX
+                  </Link>
+                  {', '}
+                  <Link href="#" className="hover:underline underline-offset-4 decoration-2 decoration-muted/30">
+                    coding
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         ))}
