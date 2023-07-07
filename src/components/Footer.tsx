@@ -6,7 +6,7 @@ interface FooterProps {}
 
 export const Footer: FC<FooterProps> = () => {
   return (
-    <footer className="flex justify-between max-w-layout mx-auto py-6 px-8 ">
+    <footer className=" flex justify-between max-w-layout mx-auto py-8 px-8 ">
       <div className="text-sm text-center text-muted/80 font-semibold">Copyright 2023 Oodri</div>
       <div className="flex gap-4 ">
         <Link href="/">

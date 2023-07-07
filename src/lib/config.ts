@@ -3,8 +3,8 @@ import { NavItem, SiteConfig } from "@/lib/types"
 export const siteConfig: SiteConfig = {
   name: "Minimal Blog",
   description:
-    "A minimal markdown blog created with NextJS 13 using the new app/ router.",
-  url: "http://next-markdown.oodri.dev",
+    "A minimal markdown blog created with NextJS 13",
+  url: "https://next-mdx-blog-six.vercel.app/",
   ogImage: "https://tx.shadcn.com/og.jpg",
   links: {
     github: "https://github.com/elvannabendroth",

@@ -17,3 +17,8 @@ export function formatDate(input: string | number): string {
     year: "numeric",
   })
 }
+
+
+export function sortByMostRecent(documents : any) {
+  return documents.sort((a : any, b: any) => Date.parse(b.date) - Date.parse(a.date))
+}

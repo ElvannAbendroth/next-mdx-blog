@@ -16,7 +16,7 @@ export default function PostItem({ post }: any) {
         <span className="flex gap-2 typo-small">
           <Icons.calendar size={16} strokeWidth="2.5" /> {formatDate(post.date)}
         </span>
-        {post.tags?.length > 0 ? (
+        {post.tags?.length > 0 && (
           <div className="flex gap-2 typo-small">
             <Icons.tags size={16} strokeWidth="2.5" />{' '}
             <div>
@@ -25,16 +25,15 @@ export default function PostItem({ post }: any) {
                   <Link
                     key={tag}
                     href="#"
-                    className="hover:underline underline-offset-4 decoration-2 decoration-muted/30"
+                    className="hover:underline underline-offset-4 decoration-2 decoration-muted/30 [&:not(:last-child)]:after:content-[',\00a0']"
                   >
                     {tag}
                   </Link>
-                  {post.tags?.length > i + 1 && ', '}
                 </>
               ))}
             </div>
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   )
