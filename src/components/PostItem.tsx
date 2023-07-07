@@ -16,22 +16,25 @@ export default function PostItem({ post }: any) {
         <span className="flex gap-2 typo-small">
           <Icons.calendar size={16} strokeWidth="2.5" /> {formatDate(post.date)}
         </span>
-        <div className="flex gap-2 typo-small">
-          <Icons.tags size={16} strokeWidth="2.5" />{' '}
-          <div>
-            <Link href="#" className="hover:underline underline-offset-4 decoration-2 decoration-muted/30">
-              design
-            </Link>
-            {', '}
-            <Link href="#" className="hover:underline underline-offset-4 decoration-2 decoration-muted/30">
-              UI/UX
-            </Link>
-            {', '}
-            <Link href="#" className="hover:underline underline-offset-4 decoration-2 decoration-muted/30">
-              coding
-            </Link>
+        {post.tags?.length > 0 ? (
+          <div className="flex gap-2 typo-small">
+            <Icons.tags size={16} strokeWidth="2.5" />{' '}
+            <div>
+              {post.tags?.map((tag: any, i: number) => (
+                <>
+                  <Link
+                    key={tag}
+                    href="#"
+                    className="hover:underline underline-offset-4 decoration-2 decoration-muted/30"
+                  >
+                    {tag}
+                  </Link>
+                  {post.tags?.length > i + 1 && ', '}
+                </>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </div>
   )
