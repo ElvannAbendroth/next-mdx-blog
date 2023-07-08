@@ -1,10 +1,11 @@
-import { allPosts } from 'contentlayer/generated'
+import { Post, allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { sortByMostRecent } from '@/lib/utils'
 
 import PostItem from '@/components/PostItem'
 import { Icons } from '@/components/Icons'
 import Link from 'next/link'
+import TagCloud from '@/components/TagCloud'
 
 interface TaggedPostsPageProps {
   params: {
@@ -21,18 +22,25 @@ function hasTag(tags: string[], tagParam: string) {
   return tags.filter(tag => tag.trim() === tagParam.trim()).length !== 0
 }
 
+function getTagsFromPosts(posts: Post[]) {
+  return allPosts.reduce((currentTags: string[], post: Post) => {
+    const postTags = post.tags?.map(tag => tag.trim()) || []
+    return currentTags.concat(postTags.filter(tag => !currentTags.includes(tag))).sort()
+  }, [])
+}
+
 export default async function TaggedPostsPage({ params }: TaggedPostsPageProps) {
   const taggedPosts = await getTaggedPostsFromParams(params.tag)
-
+  const allTags = getTagsFromPosts(allPosts)
   return (
     <div className="">
-      <Link
-        href="/tags"
-        className="typo-p mb-6 text-sm hover:underline decoration-muted-hover underline-offset-4 decoration-3 flex items-center font-bold text-muted/50"
-      >
-        <Icons.chevronLeft size={16} strokeWidth={3} /> return
+      <Link href="/tags">
+        <h2 className="typo-h2">Tags</h2>
       </Link>
-      <h2 className="typo-h5 mb-8">
+      <p className="typo-p">Here, you can browse all the posts by tags. Start with selecting a tag.</p>
+      <TagCloud />
+      <hr className="typo-hr" />
+      <h2 className="typo-h5 mb-10">
         Posts Tagged with <code className="typo-code text-primary font-extrabold">{params.tag}</code>
       </h2>
 
