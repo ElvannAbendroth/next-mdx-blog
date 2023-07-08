@@ -5,10 +5,6 @@ import { formatDate } from '@/lib/utils'
 export default function PostItem({ post }: any) {
   return (
     <div id="latest-posts-card">
-      {/* <p id="category" className="font-extrabold text-primary/50 uppercase text-sm mb-2">
-       Tutorial
-      </p> */}
-
       <Link className="hover:text-primary" href={post.slug}>
         <h2 className="typo-h3">{post.title}</h2>
       </Link>

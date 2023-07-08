@@ -20,6 +20,7 @@ export const siteConfig: SiteConfig = {
 
 export const navItems: NavItem[] = [
   { label: 'posts', href: '/' },
+  { label: 'tags', href: '/tags' },
   { label: 'About', href: '/about' },
   {label: 'Features', href: '/features'}
 ]
