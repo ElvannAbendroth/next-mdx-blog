@@ -30,6 +30,7 @@ import {
   HashIcon,
   Tags,
   Home,
+  FrownIcon,
 } from 'lucide-react'
 
 export type Icon = LucideIcon
@@ -139,4 +140,5 @@ export const Icons = {
   tags: Tags,
   hash: HashIcon,
   home: Home,
+  sad: FrownIcon,
 }
