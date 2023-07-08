@@ -34,21 +34,27 @@ export default async function TaggedPostsPage({ params }: TaggedPostsPageProps) 
   const allTags = getTagsFromPosts(allPosts)
   return (
     <div className="">
-      <Link href="/tags">
-        <h2 className="typo-h2">Tags</h2>
-      </Link>
+      <h2 className="typo-h2 flex items-center">
+        Tag: ‎
+        <Icons.hash strokeWidth={3} /> {params.tag}
+      </h2>
       <p className="typo-p">Here, you can browse all the posts by tags. Start with selecting a tag.</p>
       <TagCloud />
-      <hr className="typo-hr" />
-      <h2 className="typo-h5 mb-10">
-        Posts Tagged with <code className="typo-code text-primary font-extrabold">{params.tag}</code>
-      </h2>
 
-      <div id="post-items" className="flex flex-col gap-16">
-        {sortByMostRecent(taggedPosts).map((post: any) => (
-          <PostItem key={post.tag} post={post} />
-        ))}
-      </div>
+      {taggedPosts.length > 0 ? (
+        <div id="post-items" className="flex flex-col gap-16">
+          {sortByMostRecent(taggedPosts).map((post: any) => (
+            <PostItem key={post.tag} post={post} />
+          ))}
+        </div>
+      ) : (
+        <div id="post-items" className="flex flex-col gap-16">
+          <p className="typo-p text-muted/70 flex items-center gap-2">
+            {' '}
+            No post to show for this tag <Icons.sad size={18} />
+          </p>
+        </div>
+      )}
     </div>
   )
 }
