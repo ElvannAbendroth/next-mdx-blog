@@ -27,7 +27,9 @@ export default async function TaggedPostsPage({ params }: TaggedPostsPageProps) 
 
   return (
     <div className="flex flex-col gap-8">
-      <h2 className="typo-h5">Posts Tagged with {params.slug}</h2>
+      <h2 className="typo-h5">
+        Posts Tagged with <code className="typo-code text-primary font-extrabold">{params.slug}</code>
+      </h2>
       <div id="post-items" className="flex flex-col gap-16">
         {sortByMostRecent(taggedPosts).map((post: any) => (
           <PostItem key={post.slug} post={post} />

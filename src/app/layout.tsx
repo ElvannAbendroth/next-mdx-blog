@@ -12,7 +12,7 @@ export const metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  authors: [{ name: siteConfig.author, url: siteConfig.links.website }],
+  authors: [{ name: siteConfig.author.name, url: siteConfig.author.href }],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

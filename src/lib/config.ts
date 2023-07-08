@@ -8,12 +8,18 @@ export const siteConfig: SiteConfig = {
   ogImage: "https://tx.shadcn.com/og.jpg",
   links: {
     github: "https://github.com/elvannabendroth",
-    website: "http://www.oodri.dev"
+    twitter: "https://twitter.com/ElvannMusic",
+    behance: "https://www.behance.net/elvann",
   },
-  author: "Oodri"
+  author: {
+    name: "Oodri",
+    href: "http://www.oodri.dev",
+    image: "https://avatars.githubusercontent.com/u/28565227?v=4"
+  }
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Blog', href: '/' },
+  { label: 'posts', href: '/' },
   { label: 'About', href: '/about' },
+  {label: 'Features', href: '/features'}
 ]

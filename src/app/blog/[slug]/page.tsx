@@ -37,7 +37,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   <>
                     <Link
                       key={tag}
-                      href="#"
+                      href={`/tags/${tag}`}
                       className="hover:underline underline-offset-4 decoration-2 decoration-muted/30 [&:not(:last-child)]:after:content-[',\00a0']"
                     >
                       {tag}
