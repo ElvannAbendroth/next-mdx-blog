@@ -18,6 +18,7 @@ const components = {
   h6: ({ className, ...props }: componentsProps) => <h6 className={cn('typo-h6', className)} {...props} />,
   a: ({ className, ...props }: componentsProps) => <a className={cn('typo-a', className)} {...props} />,
   p: ({ className, ...props }: componentsProps) => <p className={cn('typo-p', className)} {...props} />,
+  strong: ({ className, ...props }: componentsProps) => <strong className={cn('typo-strong', className)} {...props} />,
   ul: ({ className, ...props }: componentsProps) => <ul className={cn('typo-ul', className)} {...props} />,
   ol: ({ className, ...props }: componentsProps) => <ol className={cn('typo-ol', className)} {...props} />,
   li: ({ className, ...props }: componentsProps) => <li className={cn('typo-li', className)} {...props} />,

@@ -48,6 +48,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
           )}
         </div>
+        {post.description && <blockquote className="typo-blockquote ">{post.description}</blockquote>}
         <Mdx code={post.body.code} />
       </article>
       <hr />

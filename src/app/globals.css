@@ -44,7 +44,7 @@
   }
 
   .typo-blockquote {
-    @apply mt-6 border-l-2 pl-6 italic [&>*]:text-muted;
+    @apply my-6 border-l-4 pl-6 italic [&>*]:text-muted [&]:text-muted text-sm tracking-normal bg-muted/5 p-4 rounded-md;
   }
 
   .typo-code {
@@ -73,5 +73,9 @@
 
   .typo-small {
     @apply text-sm font-bold text-muted/70;
+  }
+
+  .typo-strong {
+    @apply text-muted;
   }
 }
