@@ -6,10 +6,14 @@ import PostItem from '@/components/PostItem'
 import { Icons } from '@/components/Icons'
 import Link from 'next/link'
 import TagCloud from '@/components/TagCloud'
+import { PaginationControls } from '@/components/PaginationControls'
 
 interface TaggedPostsPageProps {
   params: {
     tag: string
+  }
+  searchParams: {
+    [key: string]: string | string[] | undefined
   }
 }
 
@@ -29,9 +33,16 @@ function getTagsFromPosts(posts: Post[]) {
   }, [])
 }
 
-export default async function TaggedPostsPage({ params }: TaggedPostsPageProps) {
+export default async function TaggedPostsPage({ params, searchParams }: TaggedPostsPageProps) {
   const taggedPosts = await getTaggedPostsFromParams(params.tag)
   const allTags = getTagsFromPosts(allPosts)
+
+  // Pagination
+  const currentPage = searchParams['page'] ?? '1'
+  const perPage = searchParams['per_page'] ?? '5'
+  const start = (Number(currentPage) - 1) * Number(perPage)
+  const end = start + Number(perPage)
+
   return (
     <div className="">
       <h2 className="typo-h2 flex items-center">
@@ -46,6 +57,7 @@ export default async function TaggedPostsPage({ params }: TaggedPostsPageProps) 
           {sortByMostRecent(taggedPosts).map((post: any) => (
             <PostItem key={post.tag} post={post} />
           ))}
+          <PaginationControls currentPage={currentPage} perPage={perPage} totalEntries={allPosts.length} />
         </div>
       ) : (
         <div id="post-items" className="flex flex-col gap-16">

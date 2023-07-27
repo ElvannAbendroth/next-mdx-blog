@@ -15,7 +15,7 @@ export default function TagCloud() {
   const allTags = getTagsFromPosts(allPosts)
   const pathname = usePathname()
   return (
-    <div className="flex gap-4 mb-12">
+    <div className="flex gap-4 mb-12 flex-wrap">
       <Link
         href={`/tags`}
         className={`text-base font-semibold text-muted hover:text-muted-hover hover:underline decoration-muted-hover underline-offset-4 decoration-3  flex items-center gap-1  ${

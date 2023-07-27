@@ -4,7 +4,13 @@ import { sortByMostRecent } from '@/lib/utils'
 import { Mdx } from '@/components/Mdx'
 import { PaginationControls } from '@/components/PaginationControls'
 
-export default function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+interface HomeProps {
+  searchParams: {
+    [key: string]: string | string[] | undefined
+  }
+}
+
+export default function Home({ searchParams }: HomeProps) {
   //Homepage Hero Content
   const homePage = allPages.find(page => page.slugAsParams === 'home')
 
