@@ -19,6 +19,7 @@ module.exports = {
       pre: colors.gray[800],
       black: colors.black,
       muted: { DEFAULT: colors.gray[500], foreground: colors.white, hover: colors.gray[400] },
+      input: { DEFAULT: colors.gray[200], foreground: colors.gray[800], hover: colors.gray[100] },
       white: colors.white,
       gray: colors.slate,
       primary: { DEFAULT: colors.indigo[700], foreground: colors.white, hover: colors.indigo[500] },
