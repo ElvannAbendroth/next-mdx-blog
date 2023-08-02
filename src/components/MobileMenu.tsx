@@ -1,28 +1,28 @@
 'use client'
 
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { usePathname } from 'next/navigation'
 
 import { Icons } from './Icons'
-import { Toggle } from '@/components/ui/Toggle'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover'
 import { Switch } from './ui/Switch'
+import { cn } from '@/lib/utils'
 
 interface NavItem {
   label: string
   href: string
 }
 
-interface NavItemsProps {
+interface MobileMenuProps extends HTMLAttributes<HTMLDivElement> {
   navItems: NavItem[]
 }
 
-export const NavItems: FC<NavItemsProps> = ({ navItems }) => {
+export const MobileMenu: FC<MobileMenuProps> = ({ navItems, className, ...props }) => {
   const pathname = usePathname()
 
   return (
-    <div className="flex gap-4 align-center items-center">
+    <div className={cn('flex gap-4 align-center items-center', className)} {...props}>
       <Popover>
         <PopoverTrigger className="p-2 rounded-md hover:bg-input-hover data-[state=open]:bg-input-hover">
           <Icons.menu size={21} strokeWidth={2.3} />
@@ -44,12 +44,6 @@ export const NavItems: FC<NavItemsProps> = ({ navItems }) => {
                 </li>
               )
             })}
-            {/* <li>
-              {' '}
-              <Toggle size="sm">
-                <Icons.moon size={18} strokeWidth={2.3} />
-              </Toggle>
-            </li> */}
             <hr />
             <li className="flex flex-row items-center gap-2 lowercase font-bold text-sm">
               <Icons.moon size={18} strokeWidth={2.3} />

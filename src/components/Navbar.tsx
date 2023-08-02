@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { FC } from 'react'
-import { NavItems } from './NavItems'
+import { DesktopMenu } from '@/components/DesktopMenu'
 import { siteConfig, navItems } from '@/lib/config'
-import { Icons } from './Icons'
+import { Icons } from '@/components/Icons'
+import { MobileMenu } from '@/components/MobileMenu'
 
 interface NavbarProps {}
 
@@ -16,7 +17,8 @@ export const Navbar: FC<NavbarProps> = () => {
         >
           <Icons.logo /> <span>{siteConfig.name}</span>
         </Link>
-        <NavItems navItems={navItems} />
+        <DesktopMenu navItems={navItems} className="hidden sm:block" />
+        <MobileMenu navItems={navItems} className="block sm:hidden" />
       </div>
     </nav>
   )
