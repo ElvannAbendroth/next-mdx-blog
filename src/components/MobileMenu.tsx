@@ -8,6 +8,7 @@ import { Icons } from './Icons'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover'
 import { Switch } from './ui/Switch'
 import { cn } from '@/lib/utils'
+import ThemeToggle from './ThemeToggle'
 
 interface NavItem {
   label: string
@@ -46,9 +47,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({ navItems, className, ...props 
             })}
             <hr />
             <li className="flex flex-row items-center gap-2 lowercase font-bold text-sm">
-              <Icons.moon size={18} strokeWidth={2.3} />
-              <span>Dark</span>
-              <Switch />
+              <ThemeToggle />
             </li>
           </ul>
         </PopoverContent>

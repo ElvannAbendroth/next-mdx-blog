@@ -37,12 +37,6 @@ export const DesktopMenu: FC<DesktopMenuProps> = ({ navItems, className, ...prop
             </li>
           )
         })}
-        {/* <li>
-              {' '}
-              <Toggle size="sm">
-                <Icons.moon size={18} strokeWidth={2.3} />
-              </Toggle>
-            </li> */}
 
         <li className="flex flex-row items-center gap-2 lowercase font-bold text-sm">
           <Icons.moon size={18} strokeWidth={2.3} />
