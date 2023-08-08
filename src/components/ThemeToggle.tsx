@@ -3,16 +3,13 @@ import React from 'react'
 
 import { Icons } from '@/components/Icons'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/ToggleGroup'
+import { useTheme } from './ThemeProvider'
 
 export default function ThemeToggle({}) {
+  const { theme, toggleTheme } = useTheme()
   return (
     <div className="flex">
-      <ToggleGroup
-        className="flex rounded-md justify-center shadow-md [&>*:first-child]:rounded-l-md [&>*:last-child]:rounded-r-md"
-        type="single"
-        defaultValue="center"
-        aria-label="Text alignment"
-      >
+      <ToggleGroup value={theme} onValueChange={toggleTheme} type="single" aria-label="Theme toggle">
         <ToggleGroupItem value="light" aria-label="Light Mode">
           <Icons.sun />
         </ToggleGroupItem>

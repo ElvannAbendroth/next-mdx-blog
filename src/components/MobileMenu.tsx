@@ -1,12 +1,9 @@
 'use client'
-
 import Link from 'next/link'
 import { FC, HTMLAttributes } from 'react'
 import { usePathname } from 'next/navigation'
-
 import { Icons } from './Icons'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover'
-import { Switch } from './ui/Switch'
 import { cn } from '@/lib/utils'
 import ThemeToggle from './ThemeToggle'
 

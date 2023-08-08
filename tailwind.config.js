@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 const colors = require('tailwindcss/colors')
+const themeSwapper = require('tailwindcss-theme-swapper')
 const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -14,16 +15,9 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      foreground: colors.gray[800],
-      background: colors.white,
-      pre: colors.gray[800],
-      black: colors.black,
-      muted: { DEFAULT: colors.gray[500], foreground: colors.white, hover: colors.gray[400] },
-      input: { DEFAULT: colors.gray[200], foreground: colors.gray[800], hover: colors.gray[100] },
       white: colors.white,
       gray: colors.slate,
-      primary: { DEFAULT: colors.indigo[700], foreground: colors.white, hover: colors.indigo[500] },
-      secondary: { DEFAULT: colors.pink[500], foreground: colors.white },
+      black: colors.black,
     },
 
     extend: {
@@ -33,5 +27,55 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    themeSwapper({
+      themes: [
+        // The only required theme is `base`. Every property used in
+        // other themes must exist in here.
+        {
+          name: 'base',
+          selectors: [':root'],
+          theme: {
+            colors: {
+              foreground: colors.gray[800],
+              background: colors.white,
+              pre: colors.gray[800],
+              muted: { DEFAULT: colors.gray[500], foreground: colors.white, hover: colors.gray[400] },
+              input: { DEFAULT: colors.gray[200], foreground: colors.gray[800], hover: colors.gray[100] },
+              primary: { DEFAULT: colors.indigo[700], foreground: colors.white, hover: colors.indigo[500] },
+              secondary: { DEFAULT: colors.pink[500], foreground: colors.white },
+              border: { DEFAULT: colors.gray[200] },
+            },
+          },
+        },
+        {
+          name: 'dark',
+          selectors: ['[data-theme="dark"]'],
+
+          theme: {
+            colors: {
+              foreground: colors.gray[200],
+              background: colors.gray[900],
+              pre: colors.gray[800],
+              muted: { DEFAULT: colors.gray[400], foreground: colors.black, hover: colors.gray[500] },
+              input: { DEFAULT: colors.gray[800], foreground: colors.gray[200], hover: colors.gray[900] },
+              primary: { DEFAULT: colors.indigo[500], foreground: colors.white, hover: colors.indigo[600] },
+              secondary: { DEFAULT: colors.pink[500], foreground: colors.white },
+              border: { DEFAULT: colors.gray[800] },
+            },
+          },
+        },
+        {
+          name: 'matrix',
+          selectors: ['.matrix'],
+          theme: {
+            colors: {
+              primary: '#0f0',
+            },
+          },
+        },
+      ],
+    }),
+  ],
 }

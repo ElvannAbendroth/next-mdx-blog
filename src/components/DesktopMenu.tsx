@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { Icons } from './Icons'
 import { cn } from '@/lib/utils'
 import { Toggle } from './ui/Toggle'
+import { useTheme } from './ThemeProvider'
 
 interface NavItem {
   label: string
@@ -19,6 +20,7 @@ interface DesktopMenuProps extends HTMLAttributes<HTMLDivElement> {
 
 export const DesktopMenu: FC<DesktopMenuProps> = ({ navItems, className, ...props }) => {
   const pathname = usePathname()
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <div className={cn('flex gap-4', className)} {...props}>
@@ -40,8 +42,8 @@ export const DesktopMenu: FC<DesktopMenuProps> = ({ navItems, className, ...prop
         })}
 
         <li className="flex flex-row items-center gap-2 lowercase font-bold text-sm">
-          <Toggle size="sm" className="rounded-full">
-            <Icons.moon size={16} strokeWidth={2.3} />
+          <Toggle size="sm" className="rounded-full" onPressedChange={toggleTheme}>
+            {theme === 'light' ? <Icons.moon size={16} strokeWidth={2.3} /> : <Icons.sun size={16} strokeWidth={2.3} />}
           </Toggle>
         </li>
       </ul>

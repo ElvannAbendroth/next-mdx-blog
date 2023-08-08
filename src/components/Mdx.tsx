@@ -1,11 +1,11 @@
-import * as React from 'react'
 import Image from 'next/image'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Callout from '@/components/Callout'
 
 import { cn } from '@/lib/utils'
+import { HTMLAttributes } from 'react'
 
-interface componentsProps {
+interface componentsProps extends HTMLAttributes<HTMLElement> {
   className?: string
 }
 
@@ -56,7 +56,9 @@ const components = {
       {...props}
     />
   ),
-  pre: ({ className, ...props }: componentsProps) => <pre className={cn('typo-pre', className)} {...props} />,
+  pre: ({ className, style, ...props }: componentsProps) => (
+    <pre className={cn('typo-pre', className)} style={{}} {...props} />
+  ),
   code: ({ className, ...props }: componentsProps) => <code className={cn('typo-code', className)} {...props} />,
   // @ts-ignore
   // eslint-disable-next-line

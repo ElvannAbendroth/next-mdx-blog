@@ -44,7 +44,7 @@ const ToggleGroup = forwardRef<
   return (
     <ToggleGroupPrimitive.Root
       className={cn(
-        'flex rounded-md justify-center shadow-md [&>*:first-child]:rounded-l-md [&>*:last-child]:rounded-r-md',
+        'flex rounded-md justify-center shadow-md [&>*:first-child]:rounded-l-md [&>*:last-child]:rounded-r-md ',
         className
       )}
       {...props}
