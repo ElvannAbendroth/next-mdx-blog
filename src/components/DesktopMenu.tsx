@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 
 import { Icons } from './Icons'
 import { cn } from '@/lib/utils'
+import { Toggle } from './ui/Toggle'
 
 interface NavItem {
   label: string
@@ -20,12 +21,12 @@ export const DesktopMenu: FC<DesktopMenuProps> = ({ navItems, className, ...prop
   const pathname = usePathname()
 
   return (
-    <div className={cn('flex gap-4 align-center items-center', className)} {...props}>
-      <ul className="flex gap-4 align-center ">
+    <div className={cn('flex gap-4', className)} {...props}>
+      <ul className="flex gap-4  ">
         {navItems.map(item => {
           const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href)
           return (
-            <li key={item.label}>
+            <li key={item.label} className="align-middle self-center">
               <Link
                 className={`lowercase font-bold text-sm hover:underline underline-offset-4 hover:text-primary ${
                   isActive ? 'underline text-primary' : ''
@@ -39,7 +40,9 @@ export const DesktopMenu: FC<DesktopMenuProps> = ({ navItems, className, ...prop
         })}
 
         <li className="flex flex-row items-center gap-2 lowercase font-bold text-sm">
-          <Icons.moon size={18} strokeWidth={2.3} />
+          <Toggle size="sm" className="rounded-full">
+            <Icons.moon size={16} strokeWidth={2.3} />
+          </Toggle>
         </li>
       </ul>
     </div>
