@@ -1,34 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS Minimal Markdown Blog Template
 
-## Getting Started
+This project is a starter template for a minimal markdown blog built with NextJS 13, and Tailwind & ContentLayer.
 
-First, run the development server:
+Live Demo: https://next-mdx-blog-six.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
+At this moment, this project is a very simple Markdown (MDX) blog. Here is a list of the current features, as well as my wishlist:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Current Features
+- Beautiful Minimal and Responsive Theme using TailwindCSS
+- Styled Markdown using ContentLayer, remarkGfm and reHype
+- Type-safe markdown Post and Page types.
+- Pagination
+- List of recent posts on the homepage
+- ContentLayer Markdown with remarkGfm
+- Tag Cloud: Dynamic Pages & Tag Cloud that renders a list of posts by tag.
+- Markdown Compiled on Hot reload
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features Wishlist
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This is a project I'll probably be adding onto overtime. Here are a couple of features I would like to implement, in no particular order:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Mobile Togglable Menu
+- Basic Set of UI Components: Buttons, Inputs, etc.
+- Searchbar: To find blog posts better accross the site.
+- Dark Mode Toggle: For the sake of our eyes!
+- Markdown Internal Links: Something in the style of Obsidian: `[[]]`
